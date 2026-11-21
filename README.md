@@ -1,4 +1,4 @@
-# 🧞‍♂️ Algorithm Genie — ML Recommendation Tool
+# Algorithm Genie — ML Recommendation Tool
 
 > **An Interactive, Auditable Machine Learning Algorithm Decision Assistant & Production Architecture Advisor.**  
 > *Translating business objectives and data constraints into mathematically grounded, auditable ML recommendations.*
