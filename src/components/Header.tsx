@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { ExplanationLevel } from '../types/decision';
 import { TEST_JOURNEYS, TestJourney } from '../presets/testJourneys';
+import logoImg from '../assets/logo.jpeg';
 
 interface HeaderProps {
   explanationLevel: ExplanationLevel;
@@ -34,8 +35,8 @@ export const Header: React.FC<HeaderProps> = ({
         
         {/* Brand & Title */}
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-blue-600 flex items-center justify-center shadow-md shadow-sky-500/20 text-white">
-            <Layers className="w-5 h-5" />
+          <div className="w-10 h-10 rounded-xl overflow-hidden shadow-md shadow-sky-500/20 border border-sky-200/80 bg-white flex items-center justify-center">
+            <img src={logoImg} alt="Algorithm Genie Logo" className="w-full h-full object-cover" />
           </div>
           <div>
             <div className="flex items-center space-x-2">
