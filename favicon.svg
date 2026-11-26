@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="lampGradient" x1="8" y1="12" x2="56" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+    <linearGradient id="smokeGradient" x1="12" y1="4" x2="20" y2="18" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7dd3fc" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0284c7" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- Magic Sparkles / Wisp from Spout -->
+  <path d="M12 14C10 10 14 6 12 2C16 5 18 9 14 14Z" fill="url(#smokeGradient)" />
+  <circle cx="8" cy="6" r="1.5" fill="#38bdf8" />
+  <circle cx="15" cy="4" r="1" fill="#7dd3fc" />
+  
+  <!-- Genie Lamp Body, Spout, Handle & Base -->
+  <g filter="url(#glow)">
+    <!-- Main Body and Spout -->
+    <path d="M11 20C13 20 18 24 23 26C27 27.5 35 28 41 26C45 24.5 49 22 51 22C49 26 44 37 36 41C30 44 24 43 19 40C14 37 11 31 10.5 24C10.2 21.5 10.5 20 11 20Z" fill="url(#lampGradient)" />
+    
+    <!-- Spout Tip Opening -->
+    <ellipse cx="11.5" cy="20.5" rx="3" ry="1.5" transform="rotate(-20 11.5 20.5)" fill="#7dd3fc" />
+
+    <!-- Curved Handle -->
+    <path d="M44 24C48 20 54 21 57 25C60 29 59 36 53 40C49.5 42.5 45 42 43 41.5C45 40 48 38 49 35C50.5 31 49 27.5 46 26.5L44 24Z" fill="url(#lampGradient)" />
+
+    <!-- Lamp Base / Pedestal -->
+    <path d="M22 42L20 49C20 51 24 53 32 53C40 53 44 51 44 49L42 42C38 44 26 44 22 42Z" fill="url(#lampGradient)" />
+    <ellipse cx="32" cy="51" rx="11" ry="2" fill="#0369a1" />
+
+    <!-- Lamp Lid / Cover with Knob -->
+    <ellipse cx="32" cy="27" rx="8" ry="3.5" fill="#0284c7" />
+    <ellipse cx="32" cy="26" rx="6" ry="2.2" fill="#7dd3fc" />
+    <path d="M30 25C30 22 34 22 34 25Z" fill="#38bdf8" />
+    <circle cx="32" cy="22" r="2" fill="#bae6fd" />
+
+    <!-- Highlight on Lamp Belly -->
+    <path d="M22 33C26 36 34 37 38 34" stroke="#7dd3fc" stroke-width="2" stroke-linecap="round" opacity="0.75" />
+  </g>
+</svg>
