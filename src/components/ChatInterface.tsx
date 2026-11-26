@@ -78,12 +78,12 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
           {currentNode.question}
         </h2>
 
-        {/* Info a tener en cuenta (Standout, noticeable modern card) */}
+        {/* Key Info to Consider (Standout, noticeable modern card) */}
         <div className="bg-gradient-to-r from-sky-50/90 via-sky-50/50 to-white/80 rounded-2xl p-4 sm:p-5 border-l-4 border-l-sky-500 border border-sky-200/80 shadow-xs mb-6 transition-all">
           <div className="flex items-center space-x-2">
             <span className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-lg text-xs font-bold bg-sky-600 text-white shadow-xs">
               <Info className="w-3.5 h-3.5" />
-              <span>Info a tener en cuenta</span>
+              <span>Key Info to Consider</span>
             </span>
           </div>
 
@@ -114,7 +114,7 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
                 className="text-[11px] font-semibold text-sky-700 hover:text-sky-800 flex items-center space-x-1 transition-colors"
               >
                 <Code2 className="w-3 h-3" />
-                <span>{showTechnicalDetails ? 'Ocultar contexto técnico' : 'Ver contexto técnico y estadístico'}</span>
+                <span>{showTechnicalDetails ? 'Hide technical context' : 'Show technical & statistical context'}</span>
               </button>
 
               {showTechnicalDetails && (
