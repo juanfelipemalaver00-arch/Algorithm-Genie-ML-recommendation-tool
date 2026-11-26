@@ -2,15 +2,11 @@ import React from 'react';
 import { 
   Sparkles, 
   RotateCcw, 
-  BookOpen, 
   Sliders, 
-  ChevronDown, 
-  CheckCircle2, 
-  Layers 
+  ChevronDown 
 } from 'lucide-react';
 import { ExplanationLevel } from '../types/decision';
 import { TEST_JOURNEYS, TestJourney } from '../presets/testJourneys';
-import logoImg from '../assets/logo.jpeg';
 
 interface HeaderProps {
   explanationLevel: ExplanationLevel;
@@ -33,24 +29,19 @@ export const Header: React.FC<HeaderProps> = ({
     <header className="sticky top-0 z-40 w-full bg-white/70 backdrop-blur-md border-b border-sky-100/80 shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         
-        {/* Brand & Title */}
-        <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-xl overflow-hidden shadow-md shadow-sky-500/20 border border-sky-200/80 bg-white flex items-center justify-center">
-            <img src={logoImg} alt="Algorithm Genie Logo" className="w-full h-full object-cover" />
+        {/* Brand & Title (Clean: no corner logo box) */}
+        <div className="flex flex-col">
+          <div className="flex items-center space-x-2">
+            <span className="font-extrabold text-slate-900 tracking-tight text-lg sm:text-xl">
+              Algorithm <span className="text-sky-600">Genie</span>
+            </span>
+            <span className="px-2.5 py-0.5 text-[10px] font-bold bg-sky-100/80 text-sky-700 rounded-full border border-sky-200">
+              ML Recommendation Tool v1.0
+            </span>
           </div>
-          <div>
-            <div className="flex items-center space-x-2">
-              <span className="font-extrabold text-slate-900 tracking-tight text-lg">
-                Algorithm <span className="text-sky-600">Genie</span>
-              </span>
-              <span className="px-2 py-0.5 text-[10px] font-semibold bg-sky-100/80 text-sky-700 rounded-full border border-sky-200">
-                ML Recommendation Tool v1.0
-              </span>
-            </div>
-            <p className="text-xs text-slate-500 hidden sm:block">
-              Auditable Decision Tree & Algorithmic Strategy Advisor
-            </p>
-          </div>
+          <p className="text-xs text-slate-500 hidden sm:block mt-0.5">
+            Auditable Decision Tree & Algorithmic Strategy Advisor
+          </p>
         </div>
 
         {/* Action Controls */}

@@ -3,6 +3,7 @@ import { Header } from './components/Header';
 import { SidebarSummary } from './components/SidebarSummary';
 import { ChatInterface } from './components/ChatInterface';
 import { ResultsDashboard } from './components/ResultsDashboard';
+import { SplashScreen } from './components/SplashScreen';
 import { DecisionTreeEngine } from './engine/DecisionTreeEngine';
 import { DiagnosticOrchestrator } from './engine/DiagnosticOrchestrator';
 import { ExplanationLevel, ComprehensiveDiagnosisResult } from './types/decision';
@@ -69,6 +70,9 @@ export const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-sky-50/70 via-blue-50/40 to-slate-100 flex flex-col font-sans selection:bg-sky-200 selection:text-sky-900">
       
+      {/* 2-Second Logo Splash Screen with smooth fade out */}
+      <SplashScreen />
+
       {/* Top Navigation */}
       <Header
         explanationLevel={explanationLevel}

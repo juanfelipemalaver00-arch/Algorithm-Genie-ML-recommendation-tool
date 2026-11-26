@@ -1,15 +1,11 @@
 import React from 'react';
 import { 
   Bot, 
-  HelpCircle, 
   ChevronRight, 
   ArrowLeft, 
-  RotateCcw, 
   Sparkles, 
-  AlertCircle, 
-  CheckCircle,
-  Code2,
-  Info
+  Info,
+  Code2
 } from 'lucide-react';
 import { 
   DiagnosticNode, 
@@ -78,53 +74,57 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
         </div>
 
         {/* Question Text */}
-        <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight leading-snug mb-4">
+        <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight leading-snug mb-5">
           {currentNode.question}
         </h2>
 
-        {/* Why This Matters Box (Progressive Disclosure) */}
-        <div className="bg-gradient-to-r from-sky-50/70 to-blue-50/50 rounded-2xl p-4 border border-sky-100/80 mb-6">
-          <div className="flex items-start space-x-2.5">
-            <Info className="w-4 h-4 text-sky-600 shrink-0 mt-0.5" />
-            <div className="text-xs leading-relaxed text-slate-700 flex-1">
-              <span className="font-bold text-slate-900 mr-1">Why this question matters:</span>
-              {explanationLevel === 'technical' 
-                ? currentNode.whyItMatters.technical 
-                : currentNode.whyItMatters.simple}
-            </div>
+        {/* Info a tener en cuenta (Standout, noticeable modern card) */}
+        <div className="bg-gradient-to-r from-sky-50/90 via-sky-50/50 to-white/80 rounded-2xl p-4 sm:p-5 border-l-4 border-l-sky-500 border border-sky-200/80 shadow-xs mb-6 transition-all">
+          <div className="flex items-center space-x-2">
+            <span className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-lg text-xs font-bold bg-sky-600 text-white shadow-xs">
+              <Info className="w-3.5 h-3.5" />
+              <span>Info a tener en cuenta</span>
+            </span>
           </div>
 
-          {/* Collapsible Technical Depth (if currently on Simple View) */}
+          {/* Super concise explanation */}
+          <p className="text-xs sm:text-sm font-medium text-slate-800 mt-2.5 leading-relaxed">
+            {explanationLevel === 'technical' 
+              ? currentNode.whyItMatters.technical 
+              : currentNode.whyItMatters.simple}
+          </p>
+
+          {/* Key concise points if technical considerations exist */}
+          {currentNode.technicalConsiderations && currentNode.technicalConsiderations.length > 0 && (
+            <div className="mt-3 pt-2.5 border-t border-sky-100 space-y-1.5">
+              {currentNode.technicalConsiderations.map((item, idx) => (
+                <div key={idx} className="flex items-start space-x-2 text-xs text-slate-700">
+                  <span className="text-sky-500 font-bold mt-0.5">•</span>
+                  <span className="leading-normal">{item}</span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Collapsible Technical Depth (when in Simple View) */}
           {explanationLevel === 'simple' && (
-            <div className="mt-2.5 pt-2 border-t border-sky-100/60">
+            <div className="mt-2.5 pt-2 border-t border-sky-100/80">
               <button
                 onClick={() => setShowTechnicalDetails(!showTechnicalDetails)}
                 className="text-[11px] font-semibold text-sky-700 hover:text-sky-800 flex items-center space-x-1 transition-colors"
               >
                 <Code2 className="w-3 h-3" />
-                <span>{showTechnicalDetails ? 'Hide Technical Context' : 'Show Technical Context (Statistical & Mathematical Depth)'}</span>
+                <span>{showTechnicalDetails ? 'Ocultar contexto técnico' : 'Ver contexto técnico y estadístico'}</span>
               </button>
 
               {showTechnicalDetails && (
-                <p className="text-[11px] text-slate-600 font-mono mt-1.5 pl-4 border-l-2 border-sky-300">
+                <p className="text-[11px] text-slate-600 font-mono mt-1.5 pl-3 border-l-2 border-sky-400">
                   {currentNode.whyItMatters.technical}
                 </p>
               )}
             </div>
           )}
         </div>
-
-        {/* Technical Considerations / Warnings (if any) */}
-        {currentNode.technicalConsiderations && currentNode.technicalConsiderations.length > 0 && (
-          <div className="mb-6 space-y-1.5">
-            {currentNode.technicalConsiderations.map((item, idx) => (
-              <div key={idx} className="flex items-start space-x-2 text-xs text-amber-800 bg-amber-50/80 border border-amber-200/80 p-2.5 rounded-xl">
-                <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-                <span>{item}</span>
-              </div>
-            ))}
-          </div>
-        )}
 
         {/* Selectable Option Cards */}
         <div className="space-y-3">
